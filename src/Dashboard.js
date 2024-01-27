@@ -51,23 +51,22 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className="w-screen h-screen flex flex-col bg-[#e9e9e9] px-16 py-4">
+    <div className="w-full h-full flex flex-col bg-[#e9e9e9] px-4 md:px-16 py-4 min-h-screen">
       {/* Header */}
-      <div className="flex flex-row w-full items-center space-x-4 justify-between">
-        <p className="text-[#6074DD] text-base font-bold flex">
+      <div className="flex flex-col md:flex-row w-full items-center space-y-4 md:space-x-4 md:space-y-0 justify-between text-xl">
+        <p className="text-[#6074DD] text-xl font-bold flex items-center justify-center">
           <img
             src={localStorage.getItem('avatar') || '/user.png'}
             alt="User Icon"
-            className="w-6 h-6 rounded-full mr-2"
+            className="w-6 h-6 md:w-12 md:h-12 rounded-full mr-2"
           />
           {localStorage.getItem('name')}
         </p>
 
-        <div className="flex flex-row w-fit space-x-4">
-          {/* Logout Button */}
+        <div className="flex flex-col md:flex-row w-fit space-y-4 md:space-x-4 md:space-y-0 items-center justify-center">
           <button
             onClick={toggleQuestionForm}
-            className="mt-4 px-4 py-2 bg-[#6074DD] text-white rounded-full transition-colors w-40"
+            className="px-4 py-2 bg-[#6074DD] text-white rounded-full transition-colors w-40"
           >
             {showQuestionForm ? 'View Questions' : 'Post Question'}
           </button>
@@ -75,7 +74,7 @@ const Dashboard = () => {
           {/* Logout Button */}
           <button
             onClick={handleLogout}
-            className="mt-4 px-4 py-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition-colors"
+            className="px-4 py-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition-colors"
           >
             Logout
           </button>

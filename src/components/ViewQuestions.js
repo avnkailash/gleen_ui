@@ -2,7 +2,7 @@ import React from 'react';
 
 const ViewQuestions = ({ questions }) => {
   return (
-    <div className="w-3/4 mx-auto">
+    <div className="w-full md:w-3/4 mx-auto pt-4 md:pt-0">
       <h1 className="text-xl font-semibold mb-6">Questions submitted</h1>
       {questions.length > 0 ? (
         questions.map((question) => (
