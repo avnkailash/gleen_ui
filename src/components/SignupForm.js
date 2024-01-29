@@ -44,7 +44,7 @@ const SignupForm = ({ setShowLoginForm }) => {
   return (
     <form
       onSubmit={handleSignup}
-      className="bg-white rounded-lg shadow-lg p-8 flex flex-col items-center w-full max-w-md"
+      className="bg-white shadow-lg p-8 flex flex-col items-center w-full max-w-md rounded-3xl"
     >
       <h1 className="text-xl font-bold mb-6">Signup</h1>
       <div className="w-full mb-4">
@@ -54,7 +54,7 @@ const SignupForm = ({ setShowLoginForm }) => {
             placeholder="Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full p-2 border border-gray-300 rounded-md"
+            className="w-full px-6 py-3 border border-gray-300 text-sm"
             required
           />
         </div>
@@ -63,7 +63,7 @@ const SignupForm = ({ setShowLoginForm }) => {
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full p-2 border border-gray-300 rounded-md"
+          className="w-full px-6 py-3 border border-gray-300 text-sm"
           required
         />
       </div>
@@ -73,7 +73,7 @@ const SignupForm = ({ setShowLoginForm }) => {
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="w-full p-2 border border-gray-300 rounded-md"
+          className="w-full px-6 py-3 border border-gray-300 text-sm"
           required
         />
       </div>
@@ -85,7 +85,7 @@ const SignupForm = ({ setShowLoginForm }) => {
           onChange={(e) => {
             setconfirmPassword(e.target.value);
           }}
-          className="w-full p-2 border border-gray-300 rounded-md"
+          className="w-full px-6 py-3 border border-gray-300 text-sm"
           required
         />
       </div>
@@ -93,7 +93,7 @@ const SignupForm = ({ setShowLoginForm }) => {
         <input
           type="file"
           onChange={(e) => setAvatar(e.target.files[0])}
-          className="w-full p-2 border border-gray-300 rounded-md"
+          className="w-full px-6 py-3 border border-gray-300 text-sm"
         />
       </div>
 

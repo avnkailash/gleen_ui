@@ -7,7 +7,7 @@ function App() {
   const [showLoginForm, setShowLoginForm] = useState(true);
 
   return (
-    <div className="w-screen h-screen flex flex-col items-center justify-center bg-[#e9e9e9] space-y-4">
+    <div className="w-screen h-screen flex flex-col items-center justify-center bg-[#e9e9e9] space-y-4 font-poppins">
       {showLoginForm ? (
         <LoginForm />
       ) : (

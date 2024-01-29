@@ -63,7 +63,7 @@ const LoginForm = () => {
   return (
     <form
       onSubmit={handleLogin}
-      className="bg-white rounded-lg shadow-lg p-8 flex flex-col items-center w-full max-w-md"
+      className="bg-white shadow-lg p-8 flex flex-col items-center w-full max-w-md rounded-3xl"
     >
       <h1 className="text-xl font-bold mb-6">Login</h1>
       <div className="w-full mb-4">
@@ -72,17 +72,17 @@ const LoginForm = () => {
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full p-2 border border-gray-300 rounded-md"
+          className="w-full px-6 py-3 border border-gray-300 text-sm"
           required
         />
       </div>
       <div className="w-full mb-6">
         <input
           type="password"
-          placeholder="Password"
+          placeholder="******"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="w-full p-2 border border-gray-300 rounded-md"
+          className="w-full px-6 py-3 border border-gray-300 text-sm placeholder:align-center"
           required
         />
       </div>

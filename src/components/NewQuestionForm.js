@@ -13,20 +13,18 @@ const NewQuestionForm = ({ toggleQuestionForm, fetchQuestions }) => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Token ${token}`, // Use the correct auth header based on how your backend expects it
+          Authorization: `Token ${token}`,
         },
         body: JSON.stringify({ title, text }),
       });
 
       if (response.ok) {
-        // Handle successful question post (e.g., clear form, show success message, etc.)
         setTitle('');
         setText('');
-        // You might want to fetch the questions again to update the list
+
         fetchQuestions();
         toggleQuestionForm();
       } else {
-        // Handle error (e.g., show error message)
         console.error('Failed to post the question');
       }
     } catch (error) {
@@ -38,7 +36,7 @@ const NewQuestionForm = ({ toggleQuestionForm, fetchQuestions }) => {
     <div className="flex flex-col w-full h-full items-center justify-center">
       <form
         onSubmit={handlePostQuestion}
-        className="bg-white rounded-lg shadow p-6 flex flex-col space-y-4 w-full max-w-md"
+        className="bg-white rounded-3xl shadow p-6 flex flex-col space-y-4 w-full max-w-md"
       >
         <h2 className="text-lg font-semibold">New Question</h2>
         <input
@@ -46,19 +44,19 @@ const NewQuestionForm = ({ toggleQuestionForm, fetchQuestions }) => {
           placeholder="Enter the question title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="p-2 border border-gray-300 rounded"
+          className="w-full px-6 py-3 border border-gray-300 text-sm"
           required
         />
         <textarea
           placeholder="Write your question here"
           value={text}
           onChange={(e) => setText(e.target.value)}
-          className="p-2 h-32 border border-gray-300 rounded"
+          className="w-full px-6 py-3 border border-gray-300 text-sm h-48"
           required
         />
         <button
           type="submit"
-          className="bg-[#6074DD] text-white py-2 rounded transition-colors"
+          className="bg-[#6074DD] text-white py-1 transition-colors w-14 rounded-full text-sm font-bold opacity-75 items-center justify-center flex mx-auto"
         >
           Post
         </button>
