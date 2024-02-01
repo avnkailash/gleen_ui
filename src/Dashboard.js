@@ -2,10 +2,32 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NewQuestionForm from './components/NewQuestionForm';
 import ViewQuestions from './components/ViewQuestions';
+import Pusher from 'pusher-js';
 
 const Dashboard = () => {
   const [showQuestionForm, setShowQuestionForm] = useState(false);
   const [questions, setQuestions] = useState([]);
+
+  useEffect(() => {
+    var pusher = new Pusher('b57ac495b11384ef6852', {
+      cluster: 'ap2',
+    });
+
+    var channel = pusher.subscribe('my-channel');
+    channel.bind('my-event', function (data) {
+      const newQuestion = JSON.parse(data['question']);
+      newQuestion['user']['avatar'] =
+        'http://localhost:8000' + newQuestion['user']['avatar'];
+
+      console.log(newQuestion);
+
+      setQuestions((prevQuestions) => {
+        const exists = prevQuestions.filter((q) => q.id === newQuestion.id);
+        if (exists.length > 0) return prevQuestions;
+        else return [newQuestion, ...prevQuestions];
+      });
+    });
+  }, []);
 
   const navigate = useNavigate();
 
